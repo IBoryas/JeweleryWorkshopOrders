@@ -1,0 +1,98 @@
+<div class="mycontainer">
+    <h1>New order</h1>
+    <form [formGroup]="myForm" novalidate>
+        <div class="grid">
+            <div class="column block">
+                <legend>
+                    <mat-icon>person</mat-icon>
+                    Client
+                </legend>
+                <mat-form-field appearance="outline">
+                    <mat-label>Surname</mat-label>
+                    <input name="clientSurname" formControlName="lastName" matInput list="clients">
+                    <mat-spinner [diameter]="20" *ngIf="isClientLoad" matSuffix diameter="16"></mat-spinner>
+                    <datalist id="clients">
+                      <option *ngFor="let client of clients" [value]="client.clientData"></option>
+                    </datalist>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput name="clientName" formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Patronymic</mat-label>
+                    <input matInput name="clientPatronymic" formControlName="patronymic">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input matInput name="clientPhone" formControlName="phoneNumber">
+                </mat-form-field>
+            </div>
+            <div class="mygrid block">
+                <legend>
+                    <mat-icon>diamond</mat-icon>
+                    Order
+                </legend>
+                <mat-form-field class="first" appearance="outline">
+                    <mat-label>Master</mat-label>
+                    <mat-select name="master" formControlName="employeeId">
+                      <mat-option *ngFor="let master of masters" [value]="master.id">
+                        {{master.name}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="first" appearance="outline">
+                    <mat-label>Material</mat-label>
+                    <mat-select name="material" formControlName="materialType">
+                      <mat-option *ngFor="let material of materials" [value]="material.id">
+                        {{material.material}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Content</mat-label>
+                    <mat-select name="content" formControlName="materialId">
+                      <mat-option *ngFor="let content of materialContents" [value]="content.id">
+                        {{content.content}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Weight</mat-label>
+                    <input type="number" matInput name="weight" formControlName="takenWeight">
+                </mat-form-field>
+                <mat-form-field class="first" appearance="outline">
+                    <mat-label>Product type</mat-label>
+                    <mat-select name="productType" formControlName="productType">
+                      <mat-option *ngFor="let type of productTypes" [value]="type.id">
+                        {{type.categoryName}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Product</mat-label>
+                    <mat-select name="product" formControlName="productId">
+                      <mat-option *ngFor="let product of products" [value]="product.id">
+                        {{product.productName}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field> 
+            </div>
+        </div>
+        <div class="foot block grid">
+            <mat-form-field appearance="outline" class="price">
+                <mat-label>Price</mat-label>
+                <input type="number" matInput name="price" formControlName="price">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="notes">
+                <mat-label>Notes</mat-label>
+                <input matInput name="notes" formControlName="notes">
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="buttons">
+        <input type="button" class="btn btn-primary" value="Add" [disabled]="myForm.invalid" (click)="sendData()">
+        <!-- <input type="button" class="btn btn-primary" value="Add" (click)="sendData()"> -->
+        <input type="button" class="btn btn-outline-dark btn-light" value="Print" [disabled]="myForm.invalid">
+    </div>
+</div>

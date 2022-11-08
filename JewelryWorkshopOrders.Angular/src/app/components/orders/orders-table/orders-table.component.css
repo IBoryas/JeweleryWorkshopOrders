@@ -1,0 +1,22 @@
+.container {
+    width: 70%;
+    margin: 1.5% auto;
+  }
+
+table{
+  margin:auto;
+  width: -webkit-fill-available;
+}
+
+abbr{
+  text-decoration: none;
+}
+
+.alert{
+  text-align: center;
+  font-size: x-large;
+}
+
+.green{
+  color: green;
+}

@@ -1,0 +1,72 @@
+<div class="container">
+  <h1>Completed orders</h1>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.data.length>0; else noData">
+      
+      <ng-container matColumnDef="order">
+        <th mat-header-cell *matHeaderCellDef> Order </th>
+        <td mat-cell *matCellDef="let element"> {{element.product}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="client">
+        <th mat-header-cell *matHeaderCellDef> Client </th>
+        <td mat-cell *matCellDef="let element"> {{element.client}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="master">
+        <th mat-header-cell *matHeaderCellDef> Master </th>
+        <td mat-cell *matCellDef="let element"> {{element.employee}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="material">
+        <th mat-header-cell *matHeaderCellDef> Material </th>
+        <td mat-cell *matCellDef="let element"> {{element.material}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.takenWeight}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef> Date of receipt </th>
+        <td mat-cell *matCellDef="let element"> {{element.startDate | date:'dd-MM-yyyy'}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef> Date of completion </th>
+        <td mat-cell *matCellDef="let element"> {{element.endDate | date:'dd-MM-yyyy'}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="notes">
+        <th mat-header-cell *matHeaderCellDef> Notes </th>
+        <td mat-cell *matCellDef="let element"> 
+          <abbr *ngIf="element.notes" title="{{element.notes}}">{{element.notes | slice:0:11}}...</abbr>
+        </td>
+      </ng-container> 
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell  *matHeaderCellDef > Actions </th>
+        <td mat-cell *matCellDef="let element" >
+          <button mat-icon-button color="warn" (click)="deleteOrder(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    <ng-template #noData>
+      <div class="alert alert-warning">
+        No completed orders
+      </div>
+    </ng-template>
+  
+    <mat-paginator pageSize="8"></mat-paginator>
+  </div>

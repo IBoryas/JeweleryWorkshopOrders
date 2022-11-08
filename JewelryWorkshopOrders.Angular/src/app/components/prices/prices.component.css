@@ -1,0 +1,16 @@
+.mycontainer {
+    width: 70%;
+    margin: 1.5% auto;
+  }
+
+mat-tab-group{
+  background-color: white;
+}
+
+table{
+  width: -webkit-fill-available;
+}
+
+.mat-column-price{
+  width: 25%;
+}

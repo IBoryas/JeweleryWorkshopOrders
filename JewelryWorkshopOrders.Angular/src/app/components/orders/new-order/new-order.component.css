@@ -1,0 +1,80 @@
+.mycontainer {
+    width: 70%;
+    margin: 1.5% auto;
+    border-radius: 1%;
+  }
+
+.block{
+  background-color: white;
+  border-radius: 3px;
+}
+
+legend{
+  margin-bottom: 5%;
+  color: #0d6efd;
+}
+
+.foot{
+  margin: 4px auto;
+  padding: 19px 11px 0% 16px;
+}
+
+.notes{
+  padding-left: 10px;
+}
+
+.price{
+  padding-right: 25px;
+}
+
+.column mat-form-field{
+  min-width: -webkit-fill-available;
+}
+
+.buttons{
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 1% auto;
+  gap: 5%;
+  padding: 0 13%;
+  height: 55px;
+}
+
+.buttons input{
+  font-size: large 
+}
+
+.btn-outline-dark:hover{
+  background-color: gray;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: auto 65%;
+  align-content: flex-end;
+}
+
+.mygrid{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2%;
+  padding: 18px 21px 0px 16px;
+}
+
+.column{
+  margin: auto 4px auto auto;
+  padding: 19px 5% 0% 16px;
+}
+
+.first{
+  grid-column-start: 1;
+}
+
+mat-spinner{
+  display: inline-flex
+}
+
+figcaption{
+  padding-left: 1%;
+  color: #757575;
+}

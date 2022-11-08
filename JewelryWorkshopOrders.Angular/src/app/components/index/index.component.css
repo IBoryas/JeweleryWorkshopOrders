@@ -1,0 +1,72 @@
+.img-1 {
+    background-image: url(../../../assets/images/currentOrders.jpg);
+    background-size: 100%;
+}
+.img-2 {
+    background-image: url(../../../assets/images/newOrder.jpg);
+    background-size: 100%;
+}
+.img-3 {
+    background-image: url(../../../assets/images/completedOrders.jpg);
+    background-size: 100%;
+}
+.img-4 {
+    background-image: url(../../../assets/images/pricelist.jpg);
+    background-size: 100%;
+}
+
+.item h2{
+    text-align: center;
+    color: #000000ad;
+    margin: auto;
+    font-size: 205%;
+    font-family: system-ui;
+}
+
+.item p{
+    color: #212121b0;
+    margin: auto;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    max-width: 70%;
+    align-content: center;
+    height: 600px;
+    margin: auto;
+    padding-top: 1.5%;
+    gap: 2%;
+    row-gap: 4%;
+}
+
+.item{
+    height: 250px;
+    width: 500px;
+    border-radius: 13px;
+    text-decoration: none;
+}
+
+.caption{
+    border-radius: 9px;
+    background-color: rgba(240,255,255, 0.6);
+    margin: 3% auto;
+    width: fit-content;
+    padding: 5px;
+}
+
+.item:hover .caption{
+    background-color: rgb(240, 255, 255, 0.9);
+    border-width: 2px;
+    border-color: black;
+}
+
+.item:hover{
+    transform: scale(1.03);
+    transition: all ease 500ms;
+}
+
+.cpt2{
+    margin-top: 147px;
+    font-weight: 500;
+}
