@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { AuthModule } from '@auth0/auth0-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { CompletedTableComponent } from './components/orders/completed-table/com
 import { NewOrderComponent } from './components/orders/new-order/new-order.component';
 import { UpdateOrderComponent } from './components/orders/update-order/update-order.component';
 import { PricesComponent } from './components/prices/prices.component';
+import { LoginLogoutComponent } from './components/login-logout/login-logout.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { PricesComponent } from './components/prices/prices.component';
     CompletedTableComponent,
     NewOrderComponent,
     UpdateOrderComponent,
-    PricesComponent
+    PricesComponent,
+    LoginLogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,10 @@ import { PricesComponent } from './components/prices/prices.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMatSelectSearchModule,
+    AuthModule.forRoot({
+      domain: 'dev-8gpwok7eoznemrxr.us.auth0.com',
+      clientId: 'rrQSFiEdeSGnq11uNq1ETt8qGkU9YBJn'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

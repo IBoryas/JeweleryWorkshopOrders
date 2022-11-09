@@ -1,29 +1,38 @@
 <header>
-    <nav class="navbar">
-      <div class="container">
-        <a class="navbar-brand" routerLink="">JEWELER MASTER</a>
-          <ul class="nav navbar-right">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/currentOrders">
-                  Current orders
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/newOrder">
-                  New order
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/completedOrders">
-                  Completed orders
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/prices">
-                  Price list
-                </a>
-            </li>
-        </ul>
+  <nav class="navbar">
+    <div class="container">
+      <div *ngIf="auth.isLoading$ | async; else loaded">
+        <mat-spinner [diameter]="40"></mat-spinner>
       </div>
-    </nav>
-  </header>
+      <ng-template #loaded>
+        <app-login-logout></app-login-logout>
+      </ng-template>
+        <a class="navbar-brand" routerLink="">JEWELER MASTER</a>
+        <div>
+          <ul class="nav navbar-right">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/currentOrders">
+                    Current orders
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/newOrder">
+                    New order
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/completedOrders">
+                    Completed orders
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/prices">
+                    Price list
+                  </a>
+                </li>
+              </ul>
+        </div>
+          </div>
+        </nav>
+      </header>
+      

@@ -13,6 +13,7 @@ import { UpdateOrderResolver } from './components/orders/update-order/update-ord
 import { GetMaterialsResolver} from './components/prices/getmaterials.resolver';
 import { GetPricesResolver } from './components/prices/getprices.resolver';
 import { PricesComponent } from './components/prices/prices.component';
+import { AuthGuard } from '@auth0/auth0-angular'
 
 const routes: Routes = [
   {
@@ -20,26 +21,29 @@ const routes: Routes = [
     component: OrdersTableComponent,
     resolve: {
       orders: OrdersTableResolver
-    }
+    },
+    canActivate: [AuthGuard]
   },
   {
     path: 'completedOrders',
     component: CompletedTableComponent,
     resolve: {
       orders: CompletedTableResolver
-    }
+    },
+    canActivate: [AuthGuard]
   },
   {
     path: 'newOrder',
     component: NewOrderComponent,
     resolve: {
       data: NewOrderResolver
-    }
+    },
+    canActivate: [AuthGuard]
   },
   {
     path: "updateOrder/:id",
     component: UpdateOrderComponent,
-    canActivate: [UpdateOrderGuard],
+    canActivate: [UpdateOrderGuard, AuthGuard],
     resolve: {
       order: UpdateOrderResolver,
       info: NewOrderResolver 
@@ -51,7 +55,8 @@ const routes: Routes = [
     resolve:{
       materials: GetMaterialsResolver,
       prices: GetPricesResolver
-    }
+    },
+    canActivate: [AuthGuard]
   },
   {
     path: '**',

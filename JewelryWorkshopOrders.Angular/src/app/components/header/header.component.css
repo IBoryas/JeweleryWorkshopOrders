@@ -9,6 +9,8 @@
 
 .navbar-brand{
     font-weight: 600;
+    margin-right: auto;
+    margin-left: 2%;
 }
 
 .nav-link{
@@ -36,3 +38,4 @@
 .nav-item:hover::after {
     width: 100%
 }
+
