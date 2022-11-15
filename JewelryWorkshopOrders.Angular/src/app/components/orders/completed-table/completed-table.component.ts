@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs';
-import { ICompletedOrder } from 'src/app/models/completedList';
+import { ICompletedOrder } from 'src/app/models/orders/completedOrdersList';
 import { NgOnDestroy } from 'src/app/services/ng-on-destroy.service';
 import { OrdersService } from 'src/app/services/orders.service';
 

@@ -35,8 +35,8 @@
                 </legend>
                 <mat-form-field class="first" appearance="outline">
                     <mat-label>Master</mat-label>
-                    <mat-select name="master" formControlName="employeeId">
-                      <mat-option *ngFor="let master of masters" [value]="master.id">
+                    <mat-select name="master" formControlName="employee">
+                      <mat-option *ngFor="let master of masters" [value]="master">
                         {{master.name}}
                       </mat-option>
                     </mat-select>
@@ -44,15 +44,15 @@
                 <mat-form-field class="first" appearance="outline">
                     <mat-label>Material</mat-label>
                     <mat-select name="material" formControlName="materialType">
-                      <mat-option *ngFor="let material of materials" [value]="material.id">
+                      <mat-option *ngFor="let material of materials" [value]="material">
                         {{material.material}}
                       </mat-option>
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Content</mat-label>
-                    <mat-select name="content" formControlName="materialId">
-                      <mat-option *ngFor="let content of materialContents" [value]="content.id">
+                    <mat-select name="content" formControlName="material">
+                      <mat-option *ngFor="let content of materialContents" [value]="content">
                         {{content.content}}
                       </mat-option>
                     </mat-select>
@@ -64,15 +64,15 @@
                 <mat-form-field class="first" appearance="outline">
                     <mat-label>Product type</mat-label>
                     <mat-select name="productType" formControlName="productType">
-                      <mat-option *ngFor="let type of productTypes" [value]="type.id">
+                      <mat-option *ngFor="let type of productTypes" [value]="type">
                         {{type.categoryName}}
                       </mat-option>
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Product</mat-label>
-                    <mat-select name="product" formControlName="productId">
-                      <mat-option *ngFor="let product of products" [value]="product.id">
+                    <mat-select name="product" formControlName="product">
+                      <mat-option *ngFor="let product of products" [value]="product">
                         {{product.productName}}
                       </mat-option>
                     </mat-select>
@@ -93,6 +93,6 @@
     <div class="buttons">
         <input type="button" class="btn btn-primary" value="Add" [disabled]="myForm.invalid" (click)="sendData()">
         <!-- <input type="button" class="btn btn-primary" value="Add" (click)="sendData()"> -->
-        <input type="button" class="btn btn-outline-dark btn-light" value="Print" [disabled]="myForm.invalid">
+        <input type="button" class="btn btn-outline-dark btn-light" value="Print" [disabled]="myForm.invalid" (click)="printData()">
     </div>
 </div>

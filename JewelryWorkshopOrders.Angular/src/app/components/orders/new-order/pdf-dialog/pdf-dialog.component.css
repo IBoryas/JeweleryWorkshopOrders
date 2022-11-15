@@ -1,0 +1,17 @@
+pdf-viewer{
+    width: 1000px; 
+    height: 500px;
+    border-radius: 10px;
+}
+
+h1{
+    text-align: center;
+}
+
+mat-dialog-content{
+    overflow: hidden;
+}
+
+mat-dialog-actions{
+    justify-content: flex-end;
+}

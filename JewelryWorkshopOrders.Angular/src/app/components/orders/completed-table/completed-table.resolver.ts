@@ -5,7 +5,7 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { ICompletedOrder } from 'src/app/models/completedList';
+import { ICompletedOrder } from 'src/app/models/orders/completedOrdersList';
 import { OrdersService } from 'src/app/services/orders.service';
 
 @Injectable({

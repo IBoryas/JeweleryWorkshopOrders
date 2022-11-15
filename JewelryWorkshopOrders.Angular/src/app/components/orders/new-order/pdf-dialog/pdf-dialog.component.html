@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Quittance</h1>
+<mat-dialog-content>
+    <pdf-viewer [src]="data">
+    </pdf-viewer>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="primary">Print & Add </button>
+  </mat-dialog-actions>

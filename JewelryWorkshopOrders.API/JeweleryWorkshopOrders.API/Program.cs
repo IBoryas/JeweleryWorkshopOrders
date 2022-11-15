@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Wkhtmltopdf.NetCore;
 
 namespace JeweleryWorkshopOrders.API
 {
@@ -35,6 +36,7 @@ namespace JeweleryWorkshopOrders.API
             });
 
             builder.Services.AddAutoMapper(typeof(BllAssemblyMarker));
+            builder.Services.AddWkhtmltopdf("Infrastructure");
             builder.Services.AddScoped<DbContext, JewelryWorkshopOrdersDbContext>();
             builder.Services.AddScoped<IOrderRepository, OrderRepository>();
             builder.Services.AddScoped<IOrderService, OrderService>();
@@ -53,6 +55,7 @@ namespace JeweleryWorkshopOrders.API
             builder.Services.AddScoped<IClientRepository, ClientRepository>();
             builder.Services.AddScoped<IClientService, ClientService>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<IQuittanceService, QuittanceService>();
             
             var app = builder.Build();
 
@@ -65,7 +68,12 @@ namespace JeweleryWorkshopOrders.API
 
             app.UseHttpsRedirection();
 
-            app.UseCors(configurePolicy => configurePolicy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(
+                configurePolicy => configurePolicy
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithExposedHeaders("Content-Disposition", "Location"));
 
             app.UseAuthorization();
 

@@ -8,7 +8,7 @@ import { IClientList } from 'src/app/models/clientList';
 import { IMaster } from 'src/app/models/master';
 import { IMaterialContent } from 'src/app/models/materialContent';
 import { IMaterialType } from 'src/app/models/matrialType';
-import { IOrder } from 'src/app/models/orderInfo';
+import { IOrder } from 'src/app/models/orders/orderInfo';
 import { IProduct } from 'src/app/models/product';
 import { IProductType } from 'src/app/models/productType';
 import { AdditionalDataService } from 'src/app/services/additionalData.service';

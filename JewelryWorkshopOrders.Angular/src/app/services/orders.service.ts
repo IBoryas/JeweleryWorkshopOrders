@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { ICompletedOrder } from '../models/completedList';
-import { IOrder } from '../models/orderInfo';
-import { IOrderList } from '../models/orderList';
+import { ICompletedOrder } from '../models/orders/completedOrdersList';
+import { IOrder } from '../models/orders/orderInfo';
+import { IOrderList } from '../models/orders/orderList';
 
 @Injectable({
   providedIn: "root"

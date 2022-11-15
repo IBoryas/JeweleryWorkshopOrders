@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from '@auth0/auth0-angular';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { NewOrderComponent } from './components/orders/new-order/new-order.compo
 import { UpdateOrderComponent } from './components/orders/update-order/update-order.component';
 import { PricesComponent } from './components/prices/prices.component';
 import { LoginLogoutComponent } from './components/login-logout/login-logout.component';
+import { PdfDialogComponent } from './components/orders/new-order/pdf-dialog/pdf-dialog.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { LoginLogoutComponent } from './components/login-logout/login-logout.com
     NewOrderComponent,
     UpdateOrderComponent,
     PricesComponent,
-    LoginLogoutComponent
+    LoginLogoutComponent,
+    PdfDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { LoginLogoutComponent } from './components/login-logout/login-logout.com
       domain: 'dev-8gpwok7eoznemrxr.us.auth0.com',
       clientId: 'rrQSFiEdeSGnq11uNq1ETt8qGkU9YBJn'
     }),
+    PdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -44,6 +44,10 @@ legend{
   font-size: large 
 }
 
+.single{
+  padding: unset;
+}
+
 .btn-outline-dark:hover{
   background-color: gray;
 }
