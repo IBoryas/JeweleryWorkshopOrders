@@ -8,6 +8,7 @@ using JewelryWorkshopOrders.Dal.Interfaces;
 using JewelryWorkshopOrders.Dal.Repositories;
 using JewelryWorkshopOrders.Dal.UnitOfWork;
 using JewelryWorkshopOrders.Domain;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -57,6 +58,16 @@ namespace JeweleryWorkshopOrders.API
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IQuittanceService, QuittanceService>();
             
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = "https://dev-8gpwok7eoznemrxr.us.auth0.com/";
+                options.Audience = "https://localhost:7014";
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -77,6 +88,7 @@ namespace JeweleryWorkshopOrders.API
 
             app.UseAuthorization();
 
+            app.UseAuthentication();
 
             app.MapControllers();
 
