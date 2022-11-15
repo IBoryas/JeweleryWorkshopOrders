@@ -1,10 +1,12 @@
 ﻿using JewelryWorkshopOrders.Bll.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace JewelryWorkshopOrders.API.Controllers
 {
     [Route("api/employees")]
+    [Authorize]
     [ApiController]
     public class EmployeeController : ControllerBase
     {

@@ -1,6 +1,7 @@
 ﻿
 using JewelryWorkshopOrders.Bll.Interfaces;
 using JewelryWorkshopOrders.Common.QuittanceDate;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using System.IO;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 namespace JewelryWorkshopOrders.API.Controllers
 {
     [Route("api/print")]
+    [Authorize]
     [ApiController]
     public class QuittanceController: ControllerBase
     {

@@ -66,7 +66,9 @@ export class NewOrderComponent implements OnInit{
         this.clients=data[3];
     })
 
-    this.myForm.get('materialType')?.valueChanges.subscribe((materialType)=>{
+    this.myForm.get('materialType')?.valueChanges
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe((materialType)=>{
           this.service.getMaterialContents(materialType.id)
             .pipe(takeUntil(this.destroyed$))
             .subscribe((x)=>{
@@ -79,7 +81,9 @@ export class NewOrderComponent implements OnInit{
             }
     })
 
-    this.myForm.get('productType')?.valueChanges.subscribe((productType) =>{
+    this.myForm.get('productType')?.valueChanges
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe((productType) =>{
       this.service.getProducts(productType.id)
       .pipe(takeUntil(this.destroyed$))
       .subscribe((x)=>{
@@ -87,14 +91,18 @@ export class NewOrderComponent implements OnInit{
       })
     })
 
-    this.myForm.get('product')?.valueChanges.subscribe((product) =>{
+    this.myForm.get('product')?.valueChanges
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe((product) =>{
       let materialId = this.myForm.get('materialType')?.value.id;
       if (materialId){
         this.getPrice(product.id,materialId);
       }
     })
 
-    this.myForm.get('lastName')?.valueChanges.subscribe((client) => {
+    this.myForm.get('lastName')?.valueChanges
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe((client) => {
       var id = this.clients.find(x => x.clientData === client)?.id;
       if (id)
       {
@@ -190,7 +198,8 @@ export class NewOrderComponent implements OnInit{
               document.body.appendChild(iframe);
               iframe.contentWindow?.print();
               this.sendData()
-            })
+            }),
+            takeUntil(this.destroyed$)
             ).subscribe();
         })
     }

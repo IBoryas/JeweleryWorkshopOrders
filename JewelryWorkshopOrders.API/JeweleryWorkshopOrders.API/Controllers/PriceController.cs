@@ -1,11 +1,13 @@
 ﻿using JewelryWorkshopOrders.Bll.Interfaces;
 using JewelryWorkshopOrders.Common.Dtos.PriceList;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace JewelryWorkshopOrders.API.Controllers
 {
     [Route("api/pricelist")]
+    [Authorize]
     [ApiController]
     public class PriceController: ControllerBase
     {

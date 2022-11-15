@@ -82,7 +82,9 @@ export class UpdateOrderComponent implements OnInit {
             }
           })
           
-          this.myForm.get('productType')?.valueChanges.subscribe((id) =>{
+          this.myForm.get('productType')?.valueChanges
+          .pipe(takeUntil(this.destroyed$))
+          .subscribe((id) =>{
             this.service.getProducts(id)
             .pipe(takeUntil(this.destroyed$))
             .subscribe((x)=>{
@@ -90,14 +92,18 @@ export class UpdateOrderComponent implements OnInit {
       })
     })
     
-    this.myForm.get('productId')?.valueChanges.subscribe((id) =>{
+    this.myForm.get('productId')?.valueChanges
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe((id) =>{
       let materialId = this.myForm.get('materialType')?.value;
       if (materialId){
         this.getPrice(id,materialId);
       }
     })
     
-    this.myForm.get('lastName')?.valueChanges.subscribe((client) => {
+    this.myForm.get('lastName')?.valueChanges
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe((client) => {
       var id = this.clients.find(x => x.clientData === client)?.id;
       if (id)
       {

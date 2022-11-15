@@ -1,10 +1,12 @@
 ﻿using JewelryWorkshopOrders.Bll.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace JewelryWorkshopOrders.API.Controllers
 {
     [Route("api/productcategory")]
+    [Authorize]
     [ApiController]
     public class ProductCategoryController : ControllerBase
     {

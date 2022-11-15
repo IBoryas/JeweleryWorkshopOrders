@@ -1,5 +1,6 @@
 ﻿using JewelryWorkshopOrders.Bll.Interfaces;
 using JewelryWorkshopOrders.Common.Dtos.Orders;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 namespace JewelryWorkshopOrders.API.Controllers
 {
     [Route("api/orders")]
+    [Authorize]
     [ApiController]
     public class OrderController : ControllerBase
     {

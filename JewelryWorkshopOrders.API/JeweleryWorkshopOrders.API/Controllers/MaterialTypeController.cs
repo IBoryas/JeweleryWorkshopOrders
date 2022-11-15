@@ -1,5 +1,6 @@
 ﻿using JewelryWorkshopOrders.Bll.Interfaces;
 using JewelryWorkshopOrders.Bll.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 namespace JewelryWorkshopOrders.API.Controllers
 {
     [Route("api/materialtypes")]
+    [Authorize]
     [ApiController]
     public class MaterialTypeController : ControllerBase
     {

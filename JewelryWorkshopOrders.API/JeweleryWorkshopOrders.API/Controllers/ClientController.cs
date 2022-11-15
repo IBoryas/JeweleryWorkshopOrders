@@ -1,11 +1,13 @@
 ﻿using JewelryWorkshopOrders.Bll.Interfaces;
 using JewelryWorkshopOrders.Common.Dtos.Client;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace JewelryWorkshopOrders.API.Controllers
 {
     [Route("api/clients")]
+    [Authorize]
     [ApiController]
     public class ClientController : ControllerBase
     {

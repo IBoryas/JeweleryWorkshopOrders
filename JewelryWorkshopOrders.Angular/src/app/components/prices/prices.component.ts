@@ -28,7 +28,6 @@ export class PricesComponent implements OnInit {
   materials!:IMaterialType[];
 
   dataSources:MatTableDataSource<IPriceList>[] = [];
-  paginators:MatPaginator[] = [];
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -53,6 +52,7 @@ export class PricesComponent implements OnInit {
         this.dataSources[x] = new MatTableDataSource(prices.filter(p=> p.materialId == this.materials[x].id));
         this.dataSources[x].sort = this.sort;
         this.dataSources[x].paginator = this.paginator;
+        console.log(this.dataSources[x]);
      }
     })
 
