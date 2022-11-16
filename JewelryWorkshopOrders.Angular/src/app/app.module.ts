@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule, AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
+import { environment as env } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './components/index/index.component';
@@ -42,12 +43,20 @@ import { PdfDialogComponent } from './components/orders/new-order/pdf-dialog/pdf
     FormsModule,
     ReactiveFormsModule,
     AuthModule.forRoot({
-      domain: 'dev-8gpwok7eoznemrxr.us.auth0.com',
-      clientId: 'rrQSFiEdeSGnq11uNq1ETt8qGkU9YBJn'
+      ...env.auth,
+      httpInterceptor: {
+        allowedList: [`${env.dev.serverUrl}/api/*`],
+      },
     }),
     PdfViewerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthHttpInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

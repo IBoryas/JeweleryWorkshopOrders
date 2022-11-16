@@ -1,0 +1,6 @@
+{
+    "domain": "dev-8gpwok7eoznemrxr.us.auth0.com",
+    "clientId": "rrQSFiEdeSGnq11uNq1ETt8qGkU9YBJn",
+    "audience": "https://localhost:7014",
+    "serverUrl": "https://localhost:7014"
+  }
