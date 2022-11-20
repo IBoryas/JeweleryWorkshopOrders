@@ -72,7 +72,7 @@ namespace JewelryWorkshopOrders.Dal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("JewelryWorkshopOrders.Domain.Material", b =>
@@ -110,7 +110,7 @@ namespace JewelryWorkshopOrders.Dal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MaterialType");
+                    b.ToTable("MaterialTypes");
                 });
 
             modelBuilder.Entity("JewelryWorkshopOrders.Domain.Order", b =>

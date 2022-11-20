@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -29,8 +29,8 @@ export class PricesComponent implements OnInit {
 
   dataSources:MatTableDataSource<IPriceList>[] = [];
 
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
+  @ViewChildren(MatSort) sort = new QueryList<MatSort>();
 
   ngOnInit(): void {
 
@@ -50,9 +50,9 @@ export class PricesComponent implements OnInit {
       let prices:IPriceList[]=data['prices']
       for (let x = 0; x < this.materials.length; x++) {
         this.dataSources[x] = new MatTableDataSource(prices.filter(p=> p.materialId == this.materials[x].id));
-        this.dataSources[x].sort = this.sort;
-        this.dataSources[x].paginator = this.paginator;
-        console.log(this.dataSources[x]);
+        this.dataSources[x].sort = this.sort.toArray()[x];
+        this.dataSources[x].paginator = this.paginator.toArray()[x];
+        // console.log(this.dataSources[x]);
      }
     })
 

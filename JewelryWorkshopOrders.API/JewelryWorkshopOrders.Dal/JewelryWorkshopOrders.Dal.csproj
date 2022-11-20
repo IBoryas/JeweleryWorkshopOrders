@@ -14,9 +14,4 @@
     <ProjectReference Include="..\JewelryWorkshopOrders.Domain\JewelryWorkshopOrders.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-    <Folder Include="Seed\" />
-  </ItemGroup>
-
 </Project>

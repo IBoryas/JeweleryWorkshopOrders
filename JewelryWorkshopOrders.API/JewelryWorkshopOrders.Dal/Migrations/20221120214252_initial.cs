@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JewelryWorkshopOrders.Dal.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +26,7 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Employee",
+                name: "Employees",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -37,11 +37,11 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employee", x => x.Id);
+                    table.PrimaryKey("PK_Employees", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "MaterialType",
+                name: "MaterialTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -50,7 +50,7 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MaterialType", x => x.Id);
+                    table.PrimaryKey("PK_MaterialTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -72,16 +72,16 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    MaterialTypeId = table.Column<int>(type: "int", nullable: false),
                     Content = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Materials", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Materials_MaterialType_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "MaterialType",
+                        name: "FK_Materials_MaterialTypes_MaterialTypeId",
+                        column: x => x.MaterialTypeId,
+                        principalTable: "MaterialTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -118,7 +118,6 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                     MaterialId = table.Column<int>(type: "int", nullable: false),
                     TakenWeight = table.Column<double>(type: "float", nullable: false),
                     StartDate = table.Column<DateTime>(type: "date", nullable: false),
-                    FinalWeight = table.Column<double>(type: "float", nullable: true),
                     EndDate = table.Column<DateTime>(type: "date", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
                     Notes = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -133,9 +132,9 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Orders_Employee_EmployeeId",
+                        name: "FK_Orders_Employees_EmployeeId",
                         column: x => x.EmployeeId,
-                        principalTable: "Employee",
+                        principalTable: "Employees",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -164,9 +163,9 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                 {
                     table.PrimaryKey("PK_Prices", x => new { x.ProductId, x.MaterialId });
                     table.ForeignKey(
-                        name: "FK_Prices_MaterialType_MaterialId",
+                        name: "FK_Prices_MaterialTypes_MaterialId",
                         column: x => x.MaterialId,
-                        principalTable: "MaterialType",
+                        principalTable: "MaterialTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -178,9 +177,9 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Materials_CategoryId",
+                name: "IX_Materials_MaterialTypeId",
                 table: "Materials",
-                column: "CategoryId");
+                column: "MaterialTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_ClientId",
@@ -225,7 +224,7 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                 name: "Client");
 
             migrationBuilder.DropTable(
-                name: "Employee");
+                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "Materials");
@@ -234,7 +233,7 @@ namespace JewelryWorkshopOrders.Dal.Migrations
                 name: "Product");
 
             migrationBuilder.DropTable(
-                name: "MaterialType");
+                name: "MaterialTypes");
 
             migrationBuilder.DropTable(
                 name: "ProductCategory");

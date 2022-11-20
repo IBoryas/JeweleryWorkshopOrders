@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JewelryWorkshopOrders.Dal.Migrations
 {
     [DbContext(typeof(JewelryWorkshopOrdersDbContext))]
-    [Migration("20221017203608_Initial")]
-    partial class Initial
+    [Migration("20221120214252_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,7 +74,7 @@ namespace JewelryWorkshopOrders.Dal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("JewelryWorkshopOrders.Domain.Material", b =>
@@ -85,15 +85,15 @@ namespace JewelryWorkshopOrders.Dal.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("Content")
                         .HasColumnType("int");
 
-                    b.Property<int>("Content")
+                    b.Property<int>("MaterialTypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("MaterialTypeId");
 
                     b.ToTable("Materials");
                 });
@@ -112,7 +112,7 @@ namespace JewelryWorkshopOrders.Dal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MaterialType");
+                    b.ToTable("MaterialTypes");
                 });
 
             modelBuilder.Entity("JewelryWorkshopOrders.Domain.Order", b =>
@@ -131,9 +131,6 @@ namespace JewelryWorkshopOrders.Dal.Migrations
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("date");
-
-                    b.Property<double?>("FinalWeight")
-                        .HasColumnType("float");
 
                     b.Property<int>("MaterialId")
                         .HasColumnType("int");
@@ -225,13 +222,13 @@ namespace JewelryWorkshopOrders.Dal.Migrations
 
             modelBuilder.Entity("JewelryWorkshopOrders.Domain.Material", b =>
                 {
-                    b.HasOne("JewelryWorkshopOrders.Domain.MaterialType", "Category")
+                    b.HasOne("JewelryWorkshopOrders.Domain.MaterialType", "MaterialType")
                         .WithMany("Materials")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("MaterialTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("MaterialType");
                 });
 
             modelBuilder.Entity("JewelryWorkshopOrders.Domain.Order", b =>
