@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "of7nBhI0yjwhMY8hZbMydKNZqAT/9djuEwN3MByP2SLvPOuDer815E1IRS8oMCLLaxfpGqLbNACMz94lt3RV7Q==",
+  "dgSpecHash": "0Rlv+bilFzLyQ2K6o/3fA/rL6CaNMCouh9JQdxMFJRpotMmRpMJuT/YZrwlm4kZ/PEZY19b0lr6+0OmYouYtTA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ilyab\\Desktop\\Amdaris\\100_Project\\JewelryWorkshopOrders.API\\JeweleryWorkshopOrders.API\\JewelryWorkshopOrders.API.csproj",
   "expectedPackageFiles": [
@@ -65,6 +65,7 @@
     "C:\\Users\\ilyab\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\ilyab\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ilyab\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\ilyab\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\ilyab\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\ilyab\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\ilyab\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

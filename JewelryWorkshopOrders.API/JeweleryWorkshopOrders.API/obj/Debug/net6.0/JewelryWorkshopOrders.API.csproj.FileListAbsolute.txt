@@ -466,3 +466,4 @@ C:\Users\ilyab\Desktop\Amdaris\100_Project\JewelryWorkshopOrders.API\JeweleryWor
 C:\Users\ilyab\Desktop\Amdaris\100_Project\JewelryWorkshopOrders.API\JeweleryWorkshopOrders.API\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\ilyab\Desktop\Amdaris\100_Project\JewelryWorkshopOrders.API\JeweleryWorkshopOrders.API\bin\Debug\net6.0\Infrastructure\Rotativa\Windows\wkhtmltopdf.exe
 C:\Users\ilyab\Desktop\Amdaris\100_Project\JewelryWorkshopOrders.API\JeweleryWorkshopOrders.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ilyab\Desktop\Amdaris\100_Project\JewelryWorkshopOrders.API\JeweleryWorkshopOrders.API\bin\Debug\net6.0\Newtonsoft.Json.dll

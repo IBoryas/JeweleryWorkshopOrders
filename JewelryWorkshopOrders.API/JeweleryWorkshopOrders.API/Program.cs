@@ -1,4 +1,5 @@
 using AutoMapper;
+using JewelryWorkshopOrders.API.Infrastructure.Extensions;
 using JewelryWorkshopOrders.Bll;
 using JewelryWorkshopOrders.Bll.Interfaces;
 using JewelryWorkshopOrders.Bll.Mappers;
@@ -106,6 +107,8 @@ namespace JeweleryWorkshopOrders.API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseExceptionHandling();
 
             app.UseHttpsRedirection();
 
