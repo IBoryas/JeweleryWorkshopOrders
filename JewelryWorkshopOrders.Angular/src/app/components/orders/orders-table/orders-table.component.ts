@@ -36,6 +36,14 @@ export class OrdersTableComponent{
     })
   }
 
+  applyFilter(event: Event) {
+    let target = event.target as HTMLInputElement;
+    let filterValue = target.value;
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
+  }
+
   deleteOrder(id:number){
     var index = this.dataSource.data.findIndex(e=>e.id == id);
     this.dataSource.data.splice(index,1);
