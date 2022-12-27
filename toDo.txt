@@ -1,0 +1,6 @@
+Диалоги + tooltip
+trim validation для форм
+баг с изменением материала и кнопка остается
+добавить progress-spinner
+привести в порядок prices
+

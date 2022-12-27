@@ -163,8 +163,8 @@ export class NewOrderComponent implements OnInit{
 
     formToPrintOrder():IPrintOrder{
       return {
-        surname: this.myForm.get('firstName')?.value,
-        name: this.myForm.get('lastName')?.value,
+        surname: this.myForm.get('lastName')?.value,
+        name: this.myForm.get('firstName')?.value,
         patronymic: this.myForm.get('patronymic')?.value,
         phone: this.myForm.get('phoneNumber')?.value,
         materialType: this.myForm.get('materialType')?.value.material,
